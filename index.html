@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro component with sign up form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="learn-container">
+        <h1 class="heading1 lHeight">Learn to code by <br> watching others</h1>
+        <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.</p>
+    </div>
+    <form id="form">
+        <p class="trial"><span>Try it free</span> 7 days then $20/mo. thereafter</p>
+        <div class="container">
+            <input type="text" placeholder="First Name" name="firstname" id="fName">
+                <span role="alert" id="firstNameError" aria-hidden="true">
+                    First name cannot be empty
+                </span>
+            <input type="text" placeholder="Last Name" name="lastname" id="lName">
+                <span role="alert" id="lastNameError" aria-hidden="true">
+                    Last name cannot be empty
+                </span>
+            <input type="email" placeholder="Email Address" name="email-address" id="emailAd">
+                <span role="alert" id="emailError" aria-hidden="true">
+                    Looks like this is not an email
+                </span>
+
+                <input type="password" placeholder="Password" name="password" id="password">
+                <span role="alert" id="passwordError" aria-hidden="true">
+                    Password cannot be empty
+                </span>
+
+
+                <button id="submit">Claim your free trial</button>
+                <p class="terms">By clicking the button you are agreeing to our <a href="#">Terms and Services</a></p>
+            </div>   
+    </form>
+        
+    
+    <script>
+       const submit = document.querySelector('#submit');
+
+       submit.addEventListener('click', validate);
+
+       function validate(e) {
+        e.preventDefault();
+
+        const firstNameField = document.querySelector('#fName');
+        const lastNameField = document.querySelector('#lName');
+        const emailField = document.querySelector('#emailAd');
+        const passwordField = document.querySelector('#password');
+        const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        let valid = true;
+
+        if(!firstNameField.value) {
+            const fNameError = document.querySelector('#firstNameError');
+            fNameError.classList.add('visible');
+            firstNameField.classList.add("invalid");
+            fNameError.setAttribute("aria-hidden", false);
+            fNameError.setAttribute("aria-invalid", true);
+            firstNameField.placeholder = '';
+        } 
+
+        if(!lastNameField.value){
+            const lNameError = document.querySelector('#lastNameError');
+            lNameError.classList.add('visible');
+            lastNameField.classList.add('invalid');
+            lNameError.setAttribute('aria-hidden', false);
+            lNameError.setAttribute('aria-invalid', true);
+            lastNameField.placeholder = '';
+        }
+
+        if(!emailField.value.match(validRegex)) {
+            const emailError = document.querySelector('#emailError');
+            emailError.classList.add('visible');
+            emailField.classList.add('invalid');
+            emailError.setAttribute('aria-hidden', false);
+            emailError.setAttribute('aria-invalid', true);
+            emailField.placeholder = '';
+        }
+
+        if(!passwordField.value) {
+            const passwordError = document.querySelector('#passwordError');
+            passwordError.classList.add('visible');
+            password.classList.add('invalid');
+            passwordError.setAttribute('aria-hidden', false);
+            passwordError.setAttribute('aria.invalid', true);
+            password.placeholder = '';
+        }
+
+        return valid;
+    }
+    </script>
+</body>
+</html>
