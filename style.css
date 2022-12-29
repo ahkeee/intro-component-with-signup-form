@@ -39,7 +39,7 @@ body {
 
 
 
-form {
+#form {
     display: flex;
     flex-direction: column;
     width: 1200px;
@@ -91,6 +91,11 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: hsla(154, 59%, 51%, 0.8);
+    border-color: hsla(154, 59%, 51%, 0.8);
+}
+
 /* terms and agreement */
 .terms {
     align-self: center;
@@ -106,13 +111,13 @@ a {
 /* validate form */
 
 
-#passwordError, #emailError, #firstNameError, #lastNameError {
+#passwordError, #emailError, #firstNameError, #lastNameError, #emailEmpty {
     display: none;
     font-size: 0.8em;
     margin: -1em 0 0 0;
 }
 
-#passwordError.visible, #emailError.visible, #lastNameError.visible, #firstNameError.visible {
+#passwordError.visible, #emailError.visible, #lastNameError.visible, #firstNameError.visible, #emailEmpty.visible {
     display: flex;
     justify-content: flex-end; 
     color: rgb(255, 0, 0);
